@@ -1,0 +1,34 @@
+
+<form action="<%= action_url %>" method="post">
+<input type="hidden" name="_method" value="patch">
+  <label for="birth_date">Birth_Date:
+    <input type="date" id="birth_date" name="cat[birth_date]" 
+          value="<%= cat.birth_date %>">
+  </label>
+  <br>
+  <label for="color">color:
+  <select name="cat[color]" id="color">
+    <option disabled selected> --pick a color-- </option>
+     <option value=<%= cat.color == 'orange' ? 'selected' : '' %>>Orange</option>
+     <option value=<%= cat.color == 'white' ? 'selected' : '' %>>White</option>
+     <option value=<%= cat.color == 'black' ? 'selected' : '' %>>Black</option>
+     </select>
+  </label> 
+  <br>
+  <label for="name">name:
+    <input type="text" id="name" name="cat[name]" 
+          value="<%= cat.name %>">
+  </label>
+  <br>
+  <label for="sex">sex:
+    <input type="radio" id="sex" name="cat[sex]" value=<%= cat.sex == 'M' ? 'checked' : '' %>>M
+    <input type="radio" id="sex" name="cat[sex]" value= <%= cat.sex == 'F' ? 'checked' : '' %>> F
+  </label>
+  <br>
+    <label for="description">description:
+    <textarea name="cat[description]" ><%= cat.description %></textarea>
+          
+  </label>
+  <br>
+  <input type="submit" value="<%= button_text %>">
+</form>

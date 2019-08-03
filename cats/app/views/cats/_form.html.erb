@@ -1,0 +1,36 @@
+
+<% action_url = cats_url %>
+<% button_text = 'Create Cat' %>
+
+<form action="<%= action_url %>" method="post">
+  <label for="birth_date">Birth_Date:
+    <input type="date" id="birth_date" name="cat[birth_date]" 
+          value="<%= cat.birth_date %>">
+  </label>
+  <br>
+  <label for="color">color:
+  <select name="cat[color]" id="color">
+    <option disabled selected> --pick a color-- </option>
+     <option value=<%= cat.color  == nil ? 'orange' : cat.color %>>Orange</option>
+     <option value=<%= cat.color  == nil ? 'white' : cat.color %>>White</option>
+     <option value=<%= cat.color  == nil ? 'black' : cat.color %>>Black</option>
+     </select>
+  </label> 
+  <br>
+  <label for="name">name:
+    <input type="text" id="name" name="cat[name]" 
+          value="<%= cat.name %>">
+  </label>
+  <br>
+  <label for="sex">sex:
+    <input type="radio" id="sex" name="cat[sex]"  value=<%= cat.sex == nil ? 'M':cat.sex %>>M
+    <input type="radio" id="sex" name="cat[sex]" value= <%= cat.sex == nil ? 'F':cat.sex %>> F
+  </label>
+  <br>
+    <label for="description">description:
+    <textarea name="cat[description]" ><%= cat.description %></textarea>
+          
+  </label>
+  <br>
+  <input type="submit" value="<%= button_text %>">
+</form>
